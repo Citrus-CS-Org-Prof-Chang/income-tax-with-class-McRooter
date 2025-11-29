@@ -13,17 +13,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: Dummy Test
-      id: dummy-test
+    - name: TaxTableTools Test
+      id: taxTableTools-test
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: Dummy Test
+        test-name: TaxTableTools Test
         setup-command: ''
         command: gradle test
         timeout: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        DUMMY-TEST_RESULTS: "${{steps.dummy-test.outputs.result}}"
+        TAXTABLETOOLS-TEST_RESULTS: "${{steps.taxTableTools-test.outputs.result}}"
       with:
-        runners: dummy-test
+        runners: taxTableTools-test
